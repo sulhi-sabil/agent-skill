@@ -357,6 +357,7 @@ jobs:
                 - check if .opencode folder is exist
                 - configure all agents using models: opencode/glm-4.7-free, opencode/kimi-k2.5-free or opencode/minimax-m2.1-free
             3. Setup agent skill for opencode cli (.opencode/skill on workspace), skip if already implemented. read documentation https://www.skillhub.club/docs/cli:
+                - https://github.com/sulhi-sabil/agent-skill/
                 - proffesor-for-testing-agentic-qe-skill-builder
                 - maxritter-claude-codepro-backend-models-standards
                 - obra-superpowers-systematic-debugging
@@ -370,9 +371,9 @@ jobs:
             After all tasks are completed:
             1.  **Push**:
             - Commit changes.
-            - Push to `agent`: `git push origin agent`. Create if no exist.
+            - Push to `agent-workspace`: `git push origin agent-workspace`. Create if no exist.
             2.  **PR**:
-            - Create or update Pull Request from `agent` to `main`.
+            - Create or update Pull Request from `agent-workspace` to `main`.
             - Wait and monitor check if check fail fix until all check pass
             3. 	**Merge**
             - If all check pass, no conflict with 'main', merge or set to automerge
