@@ -1,0 +1,105 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "name": "CMZ-OpenCode-Configuration",
+  "version": "1.0.0",
+  "plugin": [
+    "oh-my-opencode"
+  ],
+  "models": {
+    "sisyphus": {
+      "model": "opencode/kimi-k2.5-free",
+      "temperature": 0.7,
+      "max_tokens": 8000
+    },
+    "hephaestus": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.5,
+      "max_tokens": 8000
+    },
+    "oracle": {
+      "model": "opencode/minimax-m2.1-free",
+      "temperature": 0.3,
+      "max_tokens": 4000
+    },
+    "librarian": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "max_tokens": 4000
+    },
+    "explore": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.1,
+      "max_tokens": 2000
+    }
+  },
+  "agents": {
+    "CMZ": {
+      "model": "opencode/kimi-k2.5-free",
+      "description": "Primary orchestrator agent with self-heal, self-learn, self-evolve capabilities",
+      "behavior": {
+        "self_heal": true,
+        "self_learn": true,
+        "self_evolve": true
+      }
+    },
+    "sisyphus": {
+      "model": "opencode/kimi-k2.5-free",
+      "temperature": 0.7,
+      "system_prompt": "You are Sisyphus, the relentless coding agent. You work systematically through tasks, never giving up until the job is complete. Always use ultrawork mode for maximum efficiency."
+    },
+    "hephaestus": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.5,
+      "system_prompt": "You are Hephaestus, the craftsman of code. You build with precision and care, following best practices and ensuring quality in every line."
+    },
+    "oracle": {
+      "model": "opencode/minimax-m2.1-free",
+      "temperature": 0.3,
+      "system_prompt": "You are Oracle, the debugging and architecture expert. You analyze code deeply, identify root causes, and provide strategic solutions."
+    },
+    "librarian": {
+      "model": "opencode/glm-4.7-free",
+      "temperature": 0.2,
+      "system_prompt": "You are Librarian, the documentation and research expert. You find relevant information quickly and synthesize it for the team."
+    }
+  },
+  "skills": {
+    "auto_load": true,
+    "directories": [
+      ".opencode/skills",
+      "supplementary-repos/oh-my-opencode/skills",
+      "supplementary-repos/superpowers/skills"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [],
+    "PostToolUse": [],
+    "UserPromptSubmit": [],
+    "Stop": []
+  },
+  "mcp": {
+    "servers": [
+      {
+        "name": "context7",
+        "enabled": true
+      },
+      {
+        "name": "websearch",
+        "enabled": true
+      }
+    ]
+  },
+  "features": {
+    "todo_continuation": true,
+    "comment_checker": true,
+    "think_mode": true,
+    "ralph_loop": true,
+    "ultrawork": true
+  },
+  "config": {
+    "google_auth": false,
+    "auto_update": true,
+    "debug": false,
+    "quiet_mode": false
+  }
+}

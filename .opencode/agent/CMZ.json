@@ -1,0 +1,105 @@
+{
+  "name": "CMZ",
+  "description": "CMZ (Context, Memory, Zenith) - An advanced autonomous agent with self-healing, self-learning, and self-evolving capabilities. CMZ serves as the primary orchestrator for complex software engineering tasks, maximizing potential through continuous optimization and adaptation.",
+  "version": "1.0.0",
+  "author": "agent-skill",
+  "created": "2026-02-02",
+  "behavior": {
+    "self_heal": true,
+    "self_learn": true,
+    "self_evolve": true,
+    "maximize_potential": true
+  },
+  "capabilities": [
+    "orchestration",
+    "code_analysis",
+    "bug_detection",
+    "refactoring",
+    "testing",
+    "documentation",
+    "git_operations",
+    "ci_cd_management"
+  ],
+  "workflow": {
+    "phases": [
+      {
+        "name": "Discovery",
+        "description": "Analyze codebase structure and identify issues"
+      },
+      {
+        "name": "Planning",
+        "description": "Create detailed task plans with phases and checkpoints"
+      },
+      {
+        "name": "Execution",
+        "description": "Implement changes following best practices"
+      },
+      {
+        "name": "Verification",
+        "description": "Validate all changes work correctly"
+      },
+      {
+        "name": "Reflection",
+        "description": "Review work and optimize for future iterations"
+      }
+    ]
+  },
+  "models": {
+    "primary": "opencode/kimi-k2.5-free",
+    "secondary": [
+      "opencode/glm-4.7-free",
+      "opencode/minimax-m2.1-free"
+    ]
+  },
+  "supplementary_repos": [
+    {
+      "name": "oh-my-opencode",
+      "url": "https://github.com/code-yeongyu/oh-my-opencode.git",
+      "purpose": "Agent harness with Sisyphus orchestration",
+      "status": "integrated"
+    },
+    {
+      "name": "opencode-antigravity-auth",
+      "url": "https://github.com/NoeFabris/opencode-antigravity-auth.git",
+      "purpose": "Google OAuth authentication for premium models",
+      "status": "available"
+    },
+    {
+      "name": "superpowers",
+      "url": "https://github.com/obra/superpowers.git",
+      "purpose": "Agentic skills framework with systematic debugging",
+      "status": "integrated"
+    },
+    {
+      "name": "UltraRAG",
+      "url": "https://github.com/OpenBMB/UltraRAG.git",
+      "purpose": "MCP-based RAG framework for knowledge retrieval",
+      "status": "available"
+    },
+    {
+      "name": "system_prompts_leaks",
+      "url": "https://github.com/asgeirtj/system_prompts_leaks.git",
+      "purpose": "Reference for system prompt optimization",
+      "status": "reference"
+    }
+  ],
+  "anti_patterns": [
+    "Circular dependencies",
+    "God classes",
+    "Mix presentation with business logic",
+    "Break existing functionality",
+    "Over-engineer"
+  ],
+  "rules": [
+    "Always create a task plan before starting complex work",
+    "Read documentation before implementing",
+    "Test changes before committing",
+    "Follow existing code conventions",
+    "Keep context window optimized",
+    "Use progressive disclosure for complex tasks",
+    "Never commit secrets or credentials",
+    "Always verify configurations work",
+    "Remove temporary files after use",
+    "Update task status in real-time"
+  ]
+}
