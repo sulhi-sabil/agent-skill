@@ -232,5 +232,5 @@ jobs:
             4. Remember you are in working loop, back to PHASE 0.
           PROMPT
           )" \
-            --model opencode/kimi-k2.5-free \
+            --model opencode/glm-4.7-free \
             --share false \
