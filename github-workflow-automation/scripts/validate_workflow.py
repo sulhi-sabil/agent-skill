@@ -24,19 +24,29 @@ def validate_yaml_syntax(filepath):
     except yaml.YAMLError as e:
         return False, None, f"YAML Syntax Error: {str(e)}"
 
+def _has_key(data, key_str, bool_val):
+    """Check if data has key, handling YAML 1.1 boolean parsing.
+    
+    In YAML 1.1, 'on' is a reserved word that gets parsed as boolean True.
+    This helper checks for both the string key and its boolean equivalent.
+    """
+    return key_str in data or bool_val in data
+
+
 def check_required_fields(data):
     """Check for required workflow fields."""
     errors = []
-    
+
     if 'name' not in data:
         errors.append("Missing required field: 'name'")
-    
-    if 'on' not in data:
+
+    # YAML 1.1 parses 'on' as boolean True, so check for both
+    if not _has_key(data, 'on', True):
         errors.append("Missing required field: 'on'")
-    
+
     if 'jobs' not in data:
         errors.append("Missing required field: 'jobs'")
-    
+
     return errors
 
 def check_jobs_structure(data):
@@ -177,21 +187,28 @@ def check_secrets(data):
 def check_triggers(data):
     """Check workflow triggers."""
     warnings = []
-    
-    if 'on' not in data:
+
+    # YAML 1.1 parses 'on' as boolean True, so check for both
+    on_config = None
+    if 'on' in data:
+        on_config = data['on']
+    elif True in data:
+        on_config = data[True]
+    else:
         return warnings
-    
-    on_config = data['on']
-    
+
+    if on_config is None:
+        return warnings
+
     # Check for issue_comment trigger without proper filtering
     if 'issue_comment' in on_config:
         if 'types' not in on_config['issue_comment']:
             warnings.append("'issue_comment' trigger without 'types' filtering may trigger on all comment types")
-    
+
     # Check for workflow_dispatch without inputs
     if 'workflow_dispatch' in on_config and not isinstance(on_config['workflow_dispatch'], dict):
         warnings.append("'workflow_dispatch' trigger without 'inputs' configuration")
-    
+
     return warnings
 
 def validate_workflow(filepath):
